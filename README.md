@@ -26,22 +26,25 @@ Sous Windows (WAMP) :
  - Décommentez "Include conf/extra/httpd-vhosts.conf" dans le fichier C:\wamp\bin\apache\apacheX.X.X\conf\httpd.conf
 
 Sous Mac OS (MAMP) :
- - Je ne sais pas le faire :P
+Je ne sais pas le faire
 
 Maintenant, il faut que vhosts pointe vers le dossier Web de l'application, pour celà :
- - Ajouter dans le fichier /opt/lampp/etc/extra/httpd-vhosts.conf(sous Linux) ou C:\wamp\bin\apache\apacheX.X.X\conf\extra\httpd-vhosts.conf(sous Windows) ce qui suit :
- <VirtualHost *:80>
- 	ServerAdmin admin@localhost
- 	ServerName monsupersite
- 	DocumentRoot /opt/lampp/htdocs/monsupersite/Web #Sous Linux
- 	DocumentRoot "c:/wamp/www/monsupersite/Web" #Sous Windows
- 	<Directory /opt/lampp/htdocs/monsupersite/Web>
- 		Options Indexes FollowSymLinks MultiViews
- 		AllowOverride #Permet d'activer les .htaccess.
- 		deny from all
- 		allow from localhost
- 	</Directory>
- </VirtualHost>
+Ajouter dans le fichier /opt/lampp/etc/extra/httpd-vhosts.conf(sous Linux) ou C:\wamp\bin\apache\apacheX.X.X\conf\extra\httpd-vhosts.conf(sous Windows) ce qui suit :
+
+
+    <VirtualHost *:80>
+    	ServerAdmin admin@localhost
+    	ServerName monsupersite
+    	DocumentRoot /opt/lampp/htdocs/monsupersite/Web #Sous Linux
+    	DocumentRoot "c:/wamp/www/monsupersite/Web" #Sous Windows
+    	<Directory /opt/lampp/htdocs/monsupersite/Web>
+    		Options Indexes FollowSymLinks MultiViews
+    		AllowOverride #Permet d'activer les .htaccess
+    		deny from all
+    		allow from localhost
+    	</Directory>
+    </VirtualHost>
+
 
 Si vous avez un problème pour accéder à l'url http://localhost par la suite : créez-en aussi un Virtual Host pour localhost qui pointe vers votre dossier /opt/lampp/htdocs ou C:\wamp\www
 
